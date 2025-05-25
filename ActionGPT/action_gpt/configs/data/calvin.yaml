@@ -1,0 +1,12 @@
+data_type: "calvin"
+lmdb_dir: "/data/lmdb_datasets/task_ABC_D/"
+rgb_shape: [200, 200]
+skip_frame: 5
+
+# extra_data_config = {
+#         'sequence_length': action_gpt_config['sequence_length'],
+#         'chunk_size': action_gpt_config['action_chunk_size'],
+#         'prev_action_buffer_size': action_gpt_config['prev_action_buffer_size'],
+#         'act_dim': action_gpt_config['act_dim'],
+#         'do_extract_action': action_gpt_config['act_pred']
+#     }

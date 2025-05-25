@@ -1,0 +1,31 @@
+_target_: action_gpt.src.models.action_gpt.ActionGPT
+model_lang: 
+  _target_: transformers.T5EncoderModel.from_pretrained
+  pretrained_model_name_or_path: "t5-base"
+model_vision: 
+  _target_: action_gpt.src.models.vision_siglip.SigLIPVisionEncoder
+  pretrained_model_name_or_path: "google/siglip-base-patch16-224"
+model_causal_transformer:
+  _target_: action_gpt.src.models.trajectory_gpt2.GPT2Model
+  config: 
+    _target_: action_gpt.src.models.trajectory_gpt2.GPT2Config
+    vocab_size: 1
+    n_embd: 768
+    n_layer: 12
+    n_head: 12
+    activation_function: "relu"
+    dropout: 0.1
+    n_positions: 1024
+    add_cross_attention: true
+act_dim: 7
+hidden_size: 768
+sequence_length: 1
+chunk_size: 5
+prev_action_buffer_size: 10
+img_feat_dim: 768
+patch_feat_dim: 768
+lang_feat_dim: 768
+freeze_lang: true
+freeze_vision: true
+is_gripper_binary: true
+pred_discrete_arm_action: false
